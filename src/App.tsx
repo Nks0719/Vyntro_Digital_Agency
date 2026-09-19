@@ -36,7 +36,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 font-sans text-slate-900 selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-navy-950 font-sans text-slate-100 selection:bg-blue-600 selection:text-white">
       
       {/* Top Sticky Navbar */}
       <Navbar onOpenConsultation={handleOpenConsultation} />

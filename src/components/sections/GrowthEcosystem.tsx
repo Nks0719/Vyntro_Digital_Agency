@@ -63,22 +63,26 @@ export const GrowthEcosystem: React.FC<GrowthEcosystemProps> = ({ onOpenConsulta
   const currentPillar = pillars[selectedPillar];
 
   return (
-    <section id="growth-ecosystem" className="py-24 bg-navy-950 text-white relative overflow-hidden">
-      {/* Glow shapes */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <section id="growth-ecosystem" className="py-28 bg-navy-950 text-white relative overflow-hidden">
+      
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-600/10 rounded-full blur-[160px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-300 text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/25 text-blue-400 text-xs font-bold uppercase tracking-widest mb-3">
             <Zap className="w-3.5 h-3.5 text-cyan-400" />
             <span>Integrated Growth Flywheel</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
-            One Agency. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-300">Complete Digital Growth.</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+            One Agency.{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-300">
+              Complete Digital Growth.
+            </span>
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-slate-300/90 leading-relaxed">
             Siloed marketing produces fragmented results. We unite SEO, Social Media, Performance Ads, Web Development, and AI into a synchronized engine where each channel amplifies the other.
           </p>
         </div>
@@ -95,15 +99,15 @@ export const GrowthEcosystem: React.FC<GrowthEcosystemProps> = ({ onOpenConsulta
                 <button
                   key={pillar.id}
                   onClick={() => setSelectedPillar(index)}
-                  className={`w-full text-left p-4 sm:p-5 rounded-2xl transition-all duration-300 border flex items-center justify-between ${
+                  className={`w-full text-left p-4 sm:p-5 rounded-2xl transition-all duration-300 border flex items-center justify-between backdrop-blur-xl ${
                     isSelected
-                      ? 'bg-blue-600/20 border-blue-500 text-white shadow-glow'
-                      : 'bg-slate-900/60 border-slate-800 text-slate-300 hover:bg-slate-900 hover:text-white hover:border-slate-700'
+                      ? 'bg-gradient-to-r from-blue-600/30 to-cyan-600/20 border-cyan-400/80 text-white shadow-glow-sm scale-[1.02]'
+                      : 'bg-navy-900/80 border-white/[0.07] text-slate-400 hover:bg-navy-850 hover:text-white hover:border-white/[0.12]'
                   }`}
                 >
                   <div className="flex items-center gap-4">
                     <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-colors ${
-                      isSelected ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-400'
+                      isSelected ? 'bg-blue-600 text-white shadow-sm' : 'bg-white/[0.04] text-slate-400'
                     }`}>
                       <Icon className="w-5 h-5" />
                     </div>
@@ -111,12 +115,12 @@ export const GrowthEcosystem: React.FC<GrowthEcosystemProps> = ({ onOpenConsulta
                       <h4 className="text-sm sm:text-base font-bold tracking-tight">
                         {pillar.title}
                       </h4>
-                      <p className="text-xs text-slate-400 mt-0.5">
+                      <p className={`text-xs mt-0.5 ${isSelected ? 'text-cyan-200' : 'text-slate-500'}`}>
                         {pillar.short}
                       </p>
                     </div>
                   </div>
-                  <ArrowRight className={`w-4 h-4 transition-transform ${isSelected ? 'text-blue-400 translate-x-1' : 'text-slate-600'}`} />
+                  <ArrowRight className={`w-4 h-4 transition-transform ${isSelected ? 'text-cyan-300 translate-x-1' : 'text-slate-600'}`} />
                 </button>
               );
             })}
@@ -124,15 +128,15 @@ export const GrowthEcosystem: React.FC<GrowthEcosystemProps> = ({ onOpenConsulta
 
           {/* Visual Showcase Card */}
           <div className="lg:col-span-7">
-            <div className="relative bg-slate-900/90 border border-slate-700/80 rounded-3xl p-6 sm:p-9 shadow-2xl backdrop-blur-xl">
+            <div className="relative bg-navy-900/90 border border-white/[0.09] rounded-3xl p-6 sm:p-9 shadow-2xl backdrop-blur-2xl">
               
               {/* Top Badge */}
-              <div className="flex items-center justify-between pb-6 border-b border-slate-800">
+              <div className="flex items-center justify-between pb-6 border-b border-white/[0.07]">
                 <span className="text-xs font-semibold uppercase tracking-widest text-cyan-400 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
                   Ecosystem Component 0{selectedPillar + 1} of 05
                 </span>
-                <span className="text-xs text-slate-400 font-medium">
+                <span className="text-xs text-slate-400 font-mono font-bold">
                   {currentPillar.short}
                 </span>
               </div>
@@ -147,8 +151,8 @@ export const GrowthEcosystem: React.FC<GrowthEcosystemProps> = ({ onOpenConsulta
                 </p>
 
                 {/* Synergy Card */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-blue-950/40 border border-blue-800/40 mt-6">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-blue-300 mb-2 flex items-center gap-1.5">
+                <div className="p-4 sm:p-5 rounded-2xl bg-blue-950/40 border border-blue-500/30 mt-6">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-cyan-300 mb-2 flex items-center gap-1.5">
                     <CheckCircle2 className="w-4 h-4 text-cyan-400" />
                     <span>How It Synergizes In The Growth Engine</span>
                   </h4>
@@ -159,22 +163,22 @@ export const GrowthEcosystem: React.FC<GrowthEcosystemProps> = ({ onOpenConsulta
               </div>
 
               {/* Connected Ecosystem Formula */}
-              <div className="mt-8 pt-6 border-t border-slate-800">
+              <div className="mt-8 pt-6 border-t border-white/[0.07]">
                 <div className="flex flex-wrap items-center justify-center gap-2 text-xs font-bold">
-                  <span className="px-3 py-1.5 rounded-lg bg-slate-800 text-blue-400 border border-slate-700">SEO</span>
-                  <span className="text-slate-500">+</span>
-                  <span className="px-3 py-1.5 rounded-lg bg-slate-800 text-indigo-400 border border-slate-700">Social Media</span>
-                  <span className="text-slate-500">+</span>
-                  <span className="px-3 py-1.5 rounded-lg bg-slate-800 text-cyan-400 border border-slate-700">Paid Ads</span>
-                  <span className="text-slate-500">+</span>
-                  <span className="px-3 py-1.5 rounded-lg bg-slate-800 text-violet-400 border border-slate-700">Web Dev</span>
-                  <span className="text-slate-500">+</span>
-                  <span className="px-3 py-1.5 rounded-lg bg-slate-800 text-emerald-400 border border-slate-700">AI Tech</span>
+                  <span className="px-3 py-1.5 rounded-xl bg-white/[0.04] text-blue-400 border border-white/[0.08]">SEO</span>
+                  <span className="text-slate-600">+</span>
+                  <span className="px-3 py-1.5 rounded-xl bg-white/[0.04] text-indigo-400 border border-white/[0.08]">Social Media</span>
+                  <span className="text-slate-600">+</span>
+                  <span className="px-3 py-1.5 rounded-xl bg-white/[0.04] text-cyan-400 border border-white/[0.08]">Paid Ads</span>
+                  <span className="text-slate-600">+</span>
+                  <span className="px-3 py-1.5 rounded-xl bg-white/[0.04] text-violet-400 border border-white/[0.08]">Web Dev</span>
+                  <span className="text-slate-600">+</span>
+                  <span className="px-3 py-1.5 rounded-xl bg-white/[0.04] text-emerald-400 border border-white/[0.08]">AI Tech</span>
                 </div>
                 <div className="mt-6 flex justify-center">
                   <button
                     onClick={onOpenConsultation}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs sm:text-sm font-bold shadow-glow transition-all"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-xs sm:text-sm font-bold shadow-glow hover:shadow-glow-lg transition-all"
                   >
                     <span>Deploy This Ecosystem For Your Brand</span>
                     <ArrowRight className="w-4 h-4" />

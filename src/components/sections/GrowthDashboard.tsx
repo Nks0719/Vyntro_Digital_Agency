@@ -4,66 +4,75 @@ import {
   Users, 
   Globe, 
   BarChart3, 
-  CheckCircle2, 
   ArrowUpRight,
   Sparkles,
-  Zap
+  Zap,
+  Activity
 } from 'lucide-react';
 
 export const GrowthDashboard: React.FC = () => {
   const [activeMetric, setActiveMetric] = useState<'leads' | 'traffic' | 'social' | 'conversions'>('leads');
+  const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d'>('30d');
 
   const metricDetails = {
     leads: {
-      label: 'Verified Leads Pipeline',
-      value: 'Multi-Channel Funnel',
-      trend: 'Accelerating Inbound',
-      subtext: 'High-intent search & social prospects',
-      chartPath: 'M0,130 C40,120 70,95 110,85 C150,75 180,90 220,60 C260,35 310,40 360,15 L360,150 L0,150 Z',
-      strokePath: 'M0,130 C40,120 70,95 110,85 C150,75 180,90 220,60 C260,35 310,40 360,15',
-      points: [
-        { x: 110, y: 85, label: 'Meta Funnel Active' },
-        { x: 220, y: 60, label: 'Google Search Ads' },
-        { x: 360, y: 15, label: 'Continuous Inquiries' }
+      label: 'Verified Inbound Leads Pipeline',
+      value: 'High-Intent Inquiries',
+      rate: '+184% Scaled Lead Flow',
+      badge: 'High Conversion Quality',
+      color: 'from-blue-500 to-cyan-400',
+      stroke: '#38bdf8',
+      chartPath: 'M0,135 C35,125 70,105 110,85 C150,65 190,80 230,55 C270,30 315,35 360,12 L360,160 L0,160 Z',
+      strokePath: 'M0,135 C35,125 70,105 110,85 C150,65 190,80 230,55 C270,30 315,35 360,12',
+      checkpoints: [
+        { x: 110, y: 85, label: 'Meta Ads Launch' },
+        { x: 230, y: 55, label: 'Google PPC Scale' },
+        { x: 360, y: 12, label: 'Continuous Qualified Leads' }
       ]
     },
     traffic: {
-      label: 'Organic Website Traffic',
-      value: 'Compounding Search Growth',
-      trend: 'Top Keyword Visibility',
-      subtext: 'High-volume target intent terms',
-      chartPath: 'M0,140 C50,135 90,110 140,100 C190,90 230,65 280,45 C320,30 340,25 360,18 L360,150 L0,150 Z',
-      strokePath: 'M0,140 C50,135 90,110 140,100 C190,90 230,65 280,45 C320,30 340,25 360,18',
-      points: [
-        { x: 140, y: 100, label: 'Technical SEO Fixes' },
-        { x: 280, y: 45, label: 'Page 1 Rankings' },
-        { x: 360, y: 18, label: 'Sustained Authority' }
+      label: 'Organic Search Authority',
+      value: 'Top Google Rankings',
+      rate: '+240% Search Impressions',
+      badge: 'Sustainable Organic Growth',
+      color: 'from-indigo-500 to-blue-400',
+      stroke: '#818cf8',
+      chartPath: 'M0,145 C45,135 90,115 135,95 C180,75 225,60 270,40 C315,25 340,20 360,10 L360,160 L0,160 Z',
+      strokePath: 'M0,145 C45,135 90,115 135,95 C180,75 225,60 270,40 C315,25 340,20 360,10',
+      checkpoints: [
+        { x: 135, y: 95, label: 'Technical SEO Core' },
+        { x: 270, y: 40, label: 'Page 1 Dominance' },
+        { x: 360, y: 10, label: 'Authority Compounding' }
       ]
     },
     social: {
-      label: 'Social Media Reach & Views',
-      value: 'Viral Creative Reels',
-      trend: 'Multi-Platform Authority',
-      subtext: 'Instagram, LinkedIn & YouTube campaigns',
-      chartPath: 'M0,135 C60,125 100,105 150,70 C200,85 240,40 290,30 C330,22 350,18 360,12 L360,150 L0,150 Z',
-      strokePath: 'M0,135 C60,125 100,105 150,70 C200,85 240,40 290,30 C330,22 350,18 360,12',
-      points: [
-        { x: 150, y: 70, label: 'Reels Strategy' },
-        { x: 290, y: 30, label: 'Brand Recall Surge' },
-        { x: 360, y: 12, label: 'Consistent Community' }
+      label: 'Multi-Platform Social Reach',
+      value: 'Engaged Community & Views',
+      rate: '+310% Video & Reels Reach',
+      badge: 'Brand Recall Surge',
+      color: 'from-violet-500 to-fuchsia-400',
+      stroke: '#c084fc',
+      chartPath: 'M0,140 C50,130 95,110 145,75 C195,90 240,45 285,32 C325,22 345,16 360,8 L360,160 L0,160 Z',
+      strokePath: 'M0,140 C50,130 95,110 145,75 C195,90 240,45 285,32 C325,22 345,16 360,8',
+      checkpoints: [
+        { x: 145, y: 75, label: 'Viral Reels Engine' },
+        { x: 285, y: 32, label: 'Community Growth' },
+        { x: 360, y: 8, label: 'Brand Loyalty' }
       ]
     },
     conversions: {
-      label: 'Conversion Rate Optimization',
-      value: 'Engineered Landing Funnels',
-      trend: 'Lower Cost Per Acquisition',
-      subtext: 'A/B tested hooks & responsive layouts',
-      chartPath: 'M0,125 C45,115 90,100 130,75 C180,80 230,50 280,35 C320,25 350,15 360,10 L360,150 L0,150 Z',
-      strokePath: 'M0,125 C45,115 90,100 130,75 C180,80 230,50 280,35 C320,25 350,15 360,10',
-      points: [
-        { x: 130, y: 75, label: 'Fast Landing Page' },
-        { x: 280, y: 35, label: 'Lead Magnet Flow' },
-        { x: 360, y: 10, label: 'Max Conversion ROI' }
+      label: 'Conversion Rate Engineering',
+      value: 'Lower Cost Per Acquisition',
+      rate: '-42% Acquisition Cost',
+      badge: 'Optimized Sales Funnel',
+      color: 'from-emerald-500 to-teal-400',
+      stroke: '#34d399',
+      chartPath: 'M0,130 C40,120 85,100 130,70 C175,80 220,50 270,30 C310,20 340,12 360,6 L360,160 L0,160 Z',
+      strokePath: 'M0,130 C40,120 85,100 130,70 C175,80 220,50 270,30 C310,20 340,12 360,6',
+      checkpoints: [
+        { x: 130, y: 70, label: 'High-Converting Landing' },
+        { x: 270, y: 30, label: 'A/B Funnel Win' },
+        { x: 360, y: 6, label: 'Max ROAS Multiplier' }
       ]
     }
   };
@@ -72,150 +81,171 @@ export const GrowthDashboard: React.FC = () => {
 
   return (
     <div className="relative w-full max-w-xl mx-auto lg:max-w-none">
-      {/* Decorative ambient backdrop */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-1000 animate-pulse-subtle"></div>
+      
+      {/* Radiant ambient background glow */}
+      <div className="absolute -inset-1 bg-gradient-to-tr from-blue-600/30 via-indigo-600/20 to-cyan-500/30 rounded-3xl blur-2xl opacity-75 pointer-events-none"></div>
 
-      <div className="relative bg-slate-900/90 backdrop-blur-xl border border-slate-700/80 rounded-3xl p-5 sm:p-7 shadow-2xl overflow-hidden">
+      {/* Main Glassmorphic Container */}
+      <div className="relative bg-navy-900/90 backdrop-blur-2xl border border-white/[0.1] rounded-3xl p-5 sm:p-7 shadow-2xl overflow-hidden">
         
-        {/* Top Control Bar */}
-        <div className="flex items-center justify-between pb-5 border-b border-slate-800">
+        {/* Top Header Bar */}
+        <div className="flex items-center justify-between pb-4 border-b border-white/[0.07]">
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-            <div className="w-3 h-3 rounded-full bg-amber-500/80"></div>
-            <div className="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-            <span className="text-xs font-semibold text-slate-400 ml-2 tracking-wide flex items-center gap-1.5">
-              <Zap className="w-3 h-3 text-cyan-400" />
-              Vyntro Growth Engine • Live Analytics
+            <div className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-400/80"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-400/80"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80"></span>
+            </div>
+            <span className="text-xs font-bold text-slate-300 ml-2 tracking-wide flex items-center gap-1.5">
+              <Zap className="w-3.5 h-3.5 text-cyan-400" />
+              Vyntro Live Growth Intelligence
             </span>
           </div>
 
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-            Performance Optimized
-          </span>
+          {/* Time range pills */}
+          <div className="flex items-center gap-1 bg-white/[0.04] p-1 rounded-xl border border-white/[0.05]">
+            {(['7d', '30d', '90d'] as const).map((range) => (
+              <button
+                key={range}
+                onClick={() => setTimeRange(range)}
+                className={`px-2 py-0.5 text-[10px] font-bold rounded-lg transition-colors uppercase ${
+                  timeRange === range
+                    ? 'bg-blue-600 text-white shadow-sm'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {range}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Metric Selector Tabs */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-4">
           <button
             onClick={() => setActiveMetric('leads')}
-            className={`px-3 py-2 rounded-xl text-xs font-semibold transition-all flex flex-col items-start gap-1 ${
+            className={`p-3 rounded-2xl text-xs font-bold transition-all text-left flex flex-col gap-1.5 border ${
               activeMetric === 'leads'
-                ? 'bg-blue-600 text-white shadow-glow'
-                : 'bg-slate-800/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800'
+                ? 'bg-gradient-to-br from-blue-600/30 to-blue-700/10 border-blue-500/60 text-white shadow-glow-sm'
+                : 'bg-white/[0.02] border-white/[0.05] text-slate-400 hover:bg-white/[0.05] hover:text-slate-200'
             }`}
           >
-            <Users className="w-3.5 h-3.5" />
+            <Users className={`w-4 h-4 ${activeMetric === 'leads' ? 'text-blue-400' : 'text-slate-500'}`} />
             <span>Leads</span>
           </button>
 
           <button
             onClick={() => setActiveMetric('traffic')}
-            className={`px-3 py-2 rounded-xl text-xs font-semibold transition-all flex flex-col items-start gap-1 ${
+            className={`p-3 rounded-2xl text-xs font-bold transition-all text-left flex flex-col gap-1.5 border ${
               activeMetric === 'traffic'
-                ? 'bg-blue-600 text-white shadow-glow'
-                : 'bg-slate-800/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800'
+                ? 'bg-gradient-to-br from-indigo-600/30 to-indigo-700/10 border-indigo-500/60 text-white shadow-glow-sm'
+                : 'bg-white/[0.02] border-white/[0.05] text-slate-400 hover:bg-white/[0.05] hover:text-slate-200'
             }`}
           >
-            <Globe className="w-3.5 h-3.5" />
-            <span>Traffic</span>
+            <Globe className={`w-4 h-4 ${activeMetric === 'traffic' ? 'text-indigo-400' : 'text-slate-500'}`} />
+            <span>SEO Traffic</span>
           </button>
 
           <button
             onClick={() => setActiveMetric('social')}
-            className={`px-3 py-2 rounded-xl text-xs font-semibold transition-all flex flex-col items-start gap-1 ${
+            className={`p-3 rounded-2xl text-xs font-bold transition-all text-left flex flex-col gap-1.5 border ${
               activeMetric === 'social'
-                ? 'bg-blue-600 text-white shadow-glow'
-                : 'bg-slate-800/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800'
+                ? 'bg-gradient-to-br from-violet-600/30 to-violet-700/10 border-violet-500/60 text-white shadow-glow-sm'
+                : 'bg-white/[0.02] border-white/[0.05] text-slate-400 hover:bg-white/[0.05] hover:text-slate-200'
             }`}
           >
-            <TrendingUp className="w-3.5 h-3.5" />
-            <span>Social</span>
+            <TrendingUp className={`w-4 h-4 ${activeMetric === 'social' ? 'text-violet-400' : 'text-slate-500'}`} />
+            <span>Social Reach</span>
           </button>
 
           <button
             onClick={() => setActiveMetric('conversions')}
-            className={`px-3 py-2 rounded-xl text-xs font-semibold transition-all flex flex-col items-start gap-1 ${
+            className={`p-3 rounded-2xl text-xs font-bold transition-all text-left flex flex-col gap-1.5 border ${
               activeMetric === 'conversions'
-                ? 'bg-blue-600 text-white shadow-glow'
-                : 'bg-slate-800/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800'
+                ? 'bg-gradient-to-br from-emerald-600/30 to-emerald-700/10 border-emerald-500/60 text-white shadow-glow-sm'
+                : 'bg-white/[0.02] border-white/[0.05] text-slate-400 hover:bg-white/[0.05] hover:text-slate-200'
             }`}
           >
-            <BarChart3 className="w-3.5 h-3.5" />
+            <BarChart3 className={`w-4 h-4 ${activeMetric === 'conversions' ? 'text-emerald-400' : 'text-slate-500'}`} />
             <span>Conversion</span>
           </button>
         </div>
 
-        {/* Dynamic Metric Display */}
+        {/* Current Metric Highlight */}
         <div className="pt-5 pb-3">
-          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1.5">
             <div>
-              <p className="text-xs font-medium text-slate-400 uppercase tracking-wider">{current.label}</p>
+              <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+                {current.label}
+              </p>
               <h4 className="text-xl sm:text-2xl font-black text-white tracking-tight flex items-center gap-2 mt-0.5">
-                {current.value}
+                <span>{current.value}</span>
                 <ArrowUpRight className="w-5 h-5 text-emerald-400 shrink-0" />
               </h4>
             </div>
-            <div className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-400 bg-emerald-950/50 px-2.5 py-1 rounded-lg border border-emerald-800/50">
-              <Sparkles className="w-3 h-3" />
-              <span>{current.trend}</span>
+
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 bg-emerald-950/60 px-3 py-1.5 rounded-full border border-emerald-500/30">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>{current.rate}</span>
             </div>
           </div>
-          <p className="text-xs text-slate-400 mt-1">{current.subtext}</p>
         </div>
 
-        {/* SVG Dynamic Chart Graphic */}
-        <div className="relative w-full h-44 bg-slate-950/60 rounded-2xl border border-slate-800/80 p-2 overflow-hidden flex items-end">
-          {/* Grid lines */}
-          <div className="absolute inset-0 bg-grid-pattern-dark opacity-40"></div>
-          
-          <svg className="w-full h-full overflow-visible" viewBox="0 0 360 150" preserveAspectRatio="none">
+        {/* Dynamic Glowing Chart */}
+        <div className="relative w-full h-44 bg-navy-950/80 rounded-2xl border border-white/[0.06] p-2 overflow-hidden flex items-end">
+          <div className="absolute inset-0 bg-grid-pattern opacity-40"></div>
+
+          <svg className="w-full h-full overflow-visible" viewBox="0 0 360 160" preserveAspectRatio="none">
             <defs>
-              <linearGradient id="curveGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.4" />
-                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.0" />
+              <linearGradient id="glowArea" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor={current.stroke} stopOpacity="0.4" />
+                <stop offset="100%" stopColor={current.stroke} stopOpacity="0.0" />
               </linearGradient>
             </defs>
-            {/* Area Fill */}
+
+            {/* Area */}
             <path
               d={current.chartPath}
-              fill="url(#curveGradient)"
+              fill="url(#glowArea)"
               className="transition-all duration-700 ease-out"
             />
-            {/* Line Stroke */}
+
+            {/* Stroke Line */}
             <path
               d={current.strokePath}
               fill="none"
-              stroke="#60a5fa"
+              stroke={current.stroke}
               strokeWidth="3.5"
               strokeLinecap="round"
-              className="transition-all duration-700 ease-out drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+              className="transition-all duration-700 ease-out drop-shadow-[0_0_10px_rgba(56,189,248,0.7)]"
             />
-            {/* Key interactive points */}
-            {current.points.map((pt, idx) => (
+
+            {/* Glowing checkpoints */}
+            {current.checkpoints.map((pt, idx) => (
               <g key={idx} className="transition-all duration-500">
-                <circle cx={pt.x} cy={pt.y} r="5" fill="#ffffff" stroke="#2563eb" strokeWidth="2.5" />
+                <circle cx={pt.x} cy={pt.y} r="6" fill="#030712" stroke={current.stroke} strokeWidth="3" />
+                <circle cx={pt.x} cy={pt.y} r="2" fill="#ffffff" />
               </g>
             ))}
           </svg>
 
-          {/* Point Tooltip labels */}
-          <div className="absolute top-3 left-4 right-4 flex justify-between text-[10px] text-slate-400 pointer-events-none">
-            <span>Stage 1: Launch</span>
-            <span>Stage 2: Optimization</span>
-            <span className="text-blue-400 font-semibold">Stage 3: Scaled Growth</span>
+          {/* Point labels */}
+          <div className="absolute top-2.5 left-4 right-4 flex justify-between text-[10px] font-semibold text-slate-400 pointer-events-none">
+            <span>Setup & Audit</span>
+            <span>Channel Scale</span>
+            <span className="text-cyan-300 font-bold">Compounding Growth</span>
           </div>
         </div>
 
-        {/* Live Activity Feed strip */}
-        <div className="mt-4 pt-3.5 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+        {/* Live Event Activity Feed */}
+        <div className="mt-4 pt-3 border-t border-white/[0.07] grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
           <div className="flex items-center gap-2 text-slate-300">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-            <span className="truncate">Ad Creative A/B Tested & Scaled</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span className="truncate">High-ROAS Ad Copy Validated</span>
           </div>
           <div className="flex items-center gap-2 text-slate-300">
-            <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-            <span className="truncate">High-Converting Landing Funnel Ready</span>
+            <Activity className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+            <span className="truncate">Live Lead Attribution Active</span>
           </div>
         </div>
 

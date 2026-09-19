@@ -10,7 +10,8 @@ import {
   ShoppingCart, 
   UserCheck, 
   Rocket,
-  ArrowRight
+  ArrowRight,
+  Layers
 } from 'lucide-react';
 import { industriesData } from '../../data/industries';
 import type { IndustryItem } from '../../types';
@@ -37,53 +38,62 @@ export const IndustriesSection: React.FC<IndustriesSectionProps> = ({ onSelectIn
   };
 
   return (
-    <section id="industries" className="py-24 bg-white text-slate-900 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="industries" className="py-28 bg-navy-950 text-white relative overflow-hidden">
+      
+      {/* Background Grids & Ambient Glow */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none"></div>
+      <div className="absolute top-1/2 right-0 w-80 h-80 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider mb-3">
-            <span>Specialized Verticals</span>
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/25 text-blue-400 text-xs font-bold uppercase tracking-widest mb-3">
+            <Layers className="w-3.5 h-3.5" />
+            <span>Specialized Sector Solutions</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
-            Digital Growth Solutions For Every Industry
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+            Digital Growth Solutions For{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-300">
+              Every Industry
+            </span>
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600">
+          <p className="mt-4 text-base sm:text-lg text-slate-300/90 leading-relaxed">
             Every market operates with unique audience triggers and conversion dynamics. We tailor our marketing funnels to your sector's exact commercial realities.
           </p>
         </div>
 
-        {/* 10-Card Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+        {/* 10-Card Bento Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5">
           {industriesData.map((item: IndustryItem) => {
             const Icon = getIcon(item.iconName);
             return (
               <div
                 key={item.id}
-                className="flex flex-col justify-between p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-blue-500 hover:bg-white transition-all duration-300 shadow-sm hover:shadow-premium group"
+                className="flex flex-col justify-between p-5 sm:p-6 rounded-3xl bg-navy-900/80 border border-white/[0.07] hover:border-cyan-400/50 hover:bg-navy-850/80 transition-all duration-300 shadow-xl hover:shadow-card-hover group hover:-translate-y-1 backdrop-blur-xl"
               >
                 <div>
-                  <div className="w-11 h-11 rounded-xl bg-white border border-slate-200 text-blue-600 group-hover:bg-blue-600 group-hover:text-white flex items-center justify-center transition-colors mb-3.5 shadow-sm">
-                    <Icon className="w-5 h-5" />
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600/20 via-indigo-600/10 to-cyan-500/20 border border-blue-500/30 text-cyan-300 group-hover:bg-blue-600 group-hover:text-white flex items-center justify-center transition-all duration-300 mb-4 shadow-sm">
+                    <Icon className="w-6 h-6" />
                   </div>
                   
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md inline-block mb-1.5">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-cyan-300 bg-cyan-950/60 border border-cyan-500/30 px-2.5 py-0.5 rounded-full inline-block mb-2">
                     {item.tag}
                   </span>
 
-                  <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-base font-bold text-white group-hover:text-cyan-300 transition-colors">
                     {item.title}
                   </h3>
 
-                  <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+                  <p className="text-xs text-slate-400 mt-2 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-slate-200/60">
+                <div className="mt-5 pt-3 border-t border-white/[0.06]">
                   <button
                     onClick={() => onSelectIndustry(item.title)}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors"
                   >
                     <span>Grow This Sector</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

@@ -21,14 +21,20 @@ export default {
           950: '#172554',
         },
         navy: {
-          800: '#111827',
-          900: '#0b0f19',
-          950: '#070a12',
+          950: '#030712', // Obsidian black-navy
+          900: '#070c18', // Deep midnight
+          850: '#0c1322', // Rich slate navy
+          800: '#111b2e', // Elevated card surface
+          750: '#16223b', // Border highlight
+          700: '#1e2e4f', // Subtle borders
         },
-        accent: {
-          violet: '#8b5cf6',
+        electric: {
+          blue: '#3b82f6',
           cyan: '#06b6d4',
+          indigo: '#6366f1',
+          violet: '#8b5cf6',
           emerald: '#10b981',
+          amber: '#f59e0b',
         }
       },
       fontFamily: {
@@ -36,19 +42,31 @@ export default {
         display: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        'glow': '0 0 25px -5px rgba(59, 130, 246, 0.4)',
-        'glow-lg': '0 0 45px -10px rgba(99, 102, 241, 0.4)',
-        'premium': '0 20px 40px -15px rgba(0, 0, 0, 0.07), 0 0 1px 1px rgba(0, 0, 0, 0.04)',
-        'premium-hover': '0 30px 60px -12px rgba(15, 23, 42, 0.12), 0 0 1px 1px rgba(15, 23, 42, 0.08)',
+        'glow-sm': '0 0 15px -3px rgba(59, 130, 246, 0.3)',
+        'glow': '0 0 30px -5px rgba(59, 130, 246, 0.45)',
+        'glow-lg': '0 0 50px -10px rgba(99, 102, 241, 0.45)',
+        'glow-cyan': '0 0 30px -5px rgba(6, 182, 212, 0.45)',
+        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+        'premium': '0 20px 40px -15px rgba(0, 0, 0, 0.4), 0 0 1px 1px rgba(255, 255, 255, 0.05)',
+        'card-hover': '0 25px 50px -12px rgba(37, 99, 235, 0.25), 0 0 1px 1px rgba(59, 130, 246, 0.3)',
+      },
+      backgroundImage: {
+        'radial-gradient': 'radial-gradient(var(--tw-gradient-stops))',
+        'conic-gradient': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       animation: {
         'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'float': 'float 6s ease-in-out infinite',
+        'shimmer': 'shimmer 2.5s linear infinite',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-8px)' },
+          '50%': { transform: 'translateY(-6px)' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
         }
       }
     },

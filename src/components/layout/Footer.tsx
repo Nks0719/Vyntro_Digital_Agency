@@ -21,28 +21,29 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onOpenLegalModal, onOpenConsultation }) => {
   return (
-    <footer className="bg-navy-950 text-slate-400 border-t border-slate-800/80 pt-16 pb-12 relative overflow-hidden">
-      {/* Subtle background glow */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 right-10 w-80 h-80 bg-violet-600/5 rounded-full blur-3xl pointer-events-none"></div>
+    <footer className="bg-navy-950 text-slate-400 border-t border-white/[0.08] pt-20 pb-12 relative overflow-hidden">
+      
+      {/* Background ambient lighting */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute bottom-0 right-10 w-80 h-80 bg-cyan-600/5 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-14 border-b border-slate-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-16 border-b border-white/[0.07]">
           
           {/* Column 1: Brand & Mission */}
-          <div className="lg:col-span-2 space-y-5">
+          <div className="lg:col-span-2 space-y-6">
             <a href="#home" className="flex items-center gap-3 group inline-block">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-violet-500 p-0.5 shadow-glow flex items-center justify-center transition-transform group-hover:scale-105">
-                <div className="w-full h-full bg-navy-950 rounded-[10px] flex items-center justify-center">
-                  <TrendingUp className="w-5 h-5 text-blue-400" />
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 p-[1px] shadow-glow flex items-center justify-center transition-transform group-hover:scale-105">
+                <div className="w-full h-full bg-navy-950 rounded-[11px] flex items-center justify-center">
+                  <TrendingUp className="w-5 h-5 text-cyan-300" />
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-extrabold tracking-tight text-white flex items-center gap-1">
-                  Vyntro <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Digital</span>
+                <span className="text-xl font-black tracking-tight text-white flex items-center gap-1">
+                  Vyntro <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-300">Digital</span>
                 </span>
-                <span className="text-[10px] tracking-wider uppercase font-semibold text-slate-400 -mt-1">
-                  Digital Marketing Agency
+                <span className="text-[10px] tracking-widest uppercase font-bold text-slate-400 -mt-1">
+                  Digital Growth Agency
                 </span>
               </div>
             </a>
@@ -52,13 +53,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegalModal, onOpenConsulta
             </p>
 
             {/* Social Media Links */}
-            <div className="flex items-center gap-2 pt-2">
+            <div className="flex items-center gap-2.5 pt-2">
               <a
                 href="https://www.instagram.com/vyntrodigital"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow Vyntro Digital on Instagram"
-                className="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-pink-400 hover:border-pink-500/50 hover:bg-slate-800 transition-colors"
+                className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-pink-400 hover:border-pink-500/40 hover:bg-pink-500/10 transition-all"
               >
                 <InstagramIcon className="w-4 h-4" />
               </a>
@@ -67,7 +68,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegalModal, onOpenConsulta
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Connect on Facebook"
-                className="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-blue-400 hover:border-blue-500/50 hover:bg-slate-800 transition-colors"
+                className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-blue-400 hover:border-blue-500/40 hover:bg-blue-500/10 transition-all"
               >
                 <FacebookIcon className="w-4 h-4" />
               </a>
@@ -76,7 +77,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegalModal, onOpenConsulta
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Connect on LinkedIn"
-                className="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-500/50 hover:bg-slate-800 transition-colors"
+                className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 hover:bg-cyan-500/10 transition-all"
               >
                 <LinkedinIcon className="w-4 h-4" />
               </a>
@@ -85,82 +86,82 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegalModal, onOpenConsulta
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Subscribe on YouTube"
-                className="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-red-400 hover:border-red-500/50 hover:bg-slate-800 transition-colors"
+                className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-red-400 hover:border-red-500/40 hover:bg-red-500/10 transition-all"
               >
                 <YoutubeIcon className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Column 2: Navigation Links */}
           <div className="space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Company</h4>
+            <h4 className="text-xs font-black uppercase tracking-widest text-white">Company</h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <a href="#about" className="hover:text-white transition-colors">About Us</a>
+                <a href="#about" className="hover:text-cyan-300 transition-colors">About Us</a>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">Our Services</a>
+                <a href="#services" className="hover:text-cyan-300 transition-colors">Our Services</a>
               </li>
               <li>
-                <a href="#growth-ecosystem" className="hover:text-white transition-colors">Growth Model</a>
+                <a href="#growth-ecosystem" className="hover:text-cyan-300 transition-colors">Growth Flywheel</a>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-white transition-colors">Portfolio & Work</a>
+                <a href="#approach" className="hover:text-cyan-300 transition-colors">5-Step Process</a>
               </li>
               <li>
-                <a href="#pricing" className="hover:text-white transition-colors">Transparent Pricing</a>
+                <a href="#portfolio" className="hover:text-cyan-300 transition-colors">Client Portfolio</a>
               </li>
               <li>
-                <a href="#industries" className="hover:text-white transition-colors">Industries Served</a>
+                <a href="#pricing" className="hover:text-cyan-300 transition-colors">Pricing Packages</a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-white transition-colors">FAQs</a>
+                <a href="#faq" className="hover:text-cyan-300 transition-colors">FAQs</a>
               </li>
             </ul>
           </div>
 
           {/* Column 3: Flagship Services */}
           <div className="space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Core Services</h4>
+            <h4 className="text-xs font-black uppercase tracking-widest text-white">Core Services</h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <a href="#services" className="hover:text-white transition-colors">Search Engine Optimization</a>
+                <a href="#services" className="hover:text-cyan-300 transition-colors">Search Engine Optimization</a>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">Social Media Marketing</a>
+                <a href="#services" className="hover:text-cyan-300 transition-colors">Social Media Marketing</a>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">Google Ads / PPC</a>
+                <a href="#services" className="hover:text-cyan-300 transition-colors">Google Ads / PPC</a>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">Meta Ads (FB & IG)</a>
+                <a href="#services" className="hover:text-cyan-300 transition-colors">Meta Ads (FB & IG)</a>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">Website Development</a>
+                <a href="#services" className="hover:text-cyan-300 transition-colors">Website Development</a>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">AI & GenAI Marketing</a>
+                <a href="#services" className="hover:text-cyan-300 transition-colors">AI & GenAI Marketing</a>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">Branding & Creatives</a>
+                <a href="#services" className="hover:text-cyan-300 transition-colors">Branding & Creatives</a>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Contact & Global Coverage */}
+          {/* Column 4: Contact & Coverage */}
           <div className="space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Reach Us</h4>
-            <div className="space-y-3 text-sm">
+            <h4 className="text-xs font-black uppercase tracking-widest text-white">Reach Us</h4>
+            <div className="space-y-3.5 text-sm">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-blue-400 shrink-0 mt-1" />
+                <MapPin className="w-4 h-4 text-cyan-400 shrink-0 mt-1" />
                 <span className="text-slate-300">
                   Gorakhpur, Uttar Pradesh, India
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Globe className="w-4 h-4 text-cyan-400 shrink-0" />
-                <span className="text-emerald-400 text-xs font-medium">
+                <Globe className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span className="text-emerald-400 text-xs font-semibold">
                   Serving Clients Globally
                 </span>
               </div>
@@ -181,7 +182,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegalModal, onOpenConsulta
               <div className="pt-2">
                 <button
                   onClick={onOpenConsultation}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-400 hover:text-blue-300"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300"
                 >
                   <span>Book Free Consultation</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />

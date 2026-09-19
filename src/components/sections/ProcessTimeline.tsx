@@ -6,7 +6,8 @@ import {
   BarChart, 
   TrendingUp, 
   ArrowRight,
-  CheckCircle2
+  CheckCircle2,
+  Sparkles
 } from 'lucide-react';
 
 interface ProcessTimelineProps {
@@ -27,7 +28,7 @@ export const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ onOpenConsulta
         'Comprehensive audit of current digital footprint & website speed',
         'Competitor benchmarking in your target market',
         'Customer persona identification & high-intent search analysis',
-        'Definition of primary KPIs (Leads, ROAS, Bookings, CPA)'
+        'Definition of primary commercial KPIs (Leads, ROAS, Bookings, CPA)'
       ]
     },
     {
@@ -38,9 +39,9 @@ export const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ onOpenConsulta
       tagline: 'Creating customized growth plans.',
       details: [
         'Channel allocation between SEO, Meta Ads, and Google PPC',
-        'High-converting funnel blueprint & offer crafting',
+        'High-converting funnel blueprint & offer positioning',
         'Creative content calendar and visual design guidelines',
-        'Budget optimization matrix for maximum ROI'
+        'Budget optimization matrix for maximum commercial ROI'
       ]
     },
     {
@@ -78,34 +79,40 @@ export const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ onOpenConsulta
       details: [
         'Increasing ad budgets safely on winning creative funnels',
         'Expanding into adjacent geographic markets or customer segments',
-        'Implementing automated AI chatbots & nurturing flows',
+        'Implementing automated AI chatbots & lead nurturing flows',
         'Continuous brand authority & compounding organic rank'
       ]
     }
   ];
 
   return (
-    <section id="approach" className="py-24 bg-slate-900 text-white relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-grid-pattern-dark opacity-30 pointer-events-none"></div>
+    <section id="approach" className="py-28 bg-navy-950 text-white relative overflow-hidden">
+      
+      {/* Background Lighting */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/25 text-blue-300 text-xs font-bold uppercase tracking-wider mb-3">
-            <span>Systematic Roadmap</span>
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/25 text-blue-400 text-xs font-bold uppercase tracking-widest mb-3">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Structured Growth Engineering</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
-            Our Proven 5-Step Growth Approach
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+            Our Proven{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-300">
+              5-Step Growth Approach
+            </span>
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-400">
+          <p className="mt-4 text-base sm:text-lg text-slate-300/90 leading-relaxed">
             We don't believe in guesswork. Every marketing initiative at Vyntro Digital follows a structured, data-tested engineering process.
           </p>
         </div>
 
-        {/* Horizontal Navigation on Desktop / Tabs on Mobile */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-10">
+        {/* Step Navigation Pill Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-8">
           {steps.map((step, idx) => {
             const Icon = step.icon;
             const isActive = activeStep === idx;
@@ -113,22 +120,22 @@ export const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ onOpenConsulta
               <button
                 key={step.number}
                 onClick={() => setActiveStep(idx)}
-                className={`p-4 rounded-2xl text-left border transition-all duration-300 ${
+                className={`p-4 rounded-2xl text-left border transition-all duration-300 backdrop-blur-lg ${
                   isActive
-                    ? 'bg-blue-600 border-blue-400 text-white shadow-glow'
-                    : 'bg-slate-800/80 border-slate-700 text-slate-400 hover:text-slate-200 hover:bg-slate-800'
+                    ? 'bg-gradient-to-br from-blue-600/30 to-cyan-600/10 border-cyan-400/80 text-white shadow-glow-sm scale-[1.02]'
+                    : 'bg-navy-900/80 border-white/[0.07] text-slate-400 hover:text-white hover:bg-navy-850 hover:border-white/[0.12]'
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className={`text-xs font-mono font-bold ${isActive ? 'text-blue-200' : 'text-slate-500'}`}>
+                  <span className={`text-xs font-mono font-black ${isActive ? 'text-cyan-300' : 'text-slate-500'}`}>
                     {step.number}
                   </span>
-                  <Icon className="w-4 h-4" />
+                  <Icon className={`w-4 h-4 ${isActive ? 'text-cyan-300' : 'text-slate-500'}`} />
                 </div>
                 <h4 className="text-sm font-bold tracking-tight">
                   {step.title}
                 </h4>
-                <p className={`text-[11px] truncate mt-0.5 ${isActive ? 'text-blue-100' : 'text-slate-500'}`}>
+                <p className={`text-[11px] truncate mt-0.5 ${isActive ? 'text-cyan-200' : 'text-slate-500'}`}>
                   {step.short}
                 </p>
               </button>
@@ -137,27 +144,25 @@ export const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ onOpenConsulta
         </div>
 
         {/* Active Stage Detailed Breakdown Card */}
-        <div className="bg-slate-800/90 border border-slate-700 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-md">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-700">
-            <div>
-              <div className="flex items-center gap-3">
-                <span className="text-3xl sm:text-4xl font-black text-blue-400 font-mono">
-                  {steps[activeStep].number}
-                </span>
-                <div>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-                    {steps[activeStep].title}
-                  </h3>
-                  <p className="text-sm text-slate-300 mt-0.5">
-                    {steps[activeStep].tagline}
-                  </p>
-                </div>
+        <div className="bg-navy-900/90 border border-white/[0.09] rounded-3xl p-7 sm:p-10 shadow-2xl backdrop-blur-2xl">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-white/[0.07]">
+            <div className="flex items-center gap-4">
+              <span className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 font-mono">
+                {steps[activeStep].number}
+              </span>
+              <div>
+                <h3 className="text-2xl sm:text-3xl font-black text-white">
+                  {steps[activeStep].title}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-400 mt-0.5">
+                  {steps[activeStep].tagline}
+                </p>
               </div>
             </div>
 
             <button
               onClick={onOpenConsultation}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-bold shadow-md transition-all self-start lg:self-center"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-xs sm:text-sm font-bold shadow-glow transition-all self-start lg:self-center"
             >
               <span>Apply This Step To Your Business</span>
               <ArrowRight className="w-4 h-4" />
@@ -169,7 +174,7 @@ export const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ onOpenConsulta
             {steps[activeStep].details.map((point, index) => (
               <div 
                 key={index}
-                className="p-4 rounded-xl bg-slate-900/60 border border-slate-750 flex items-start gap-3"
+                className="p-4 rounded-2xl bg-navy-850/80 border border-white/[0.05] flex items-start gap-3.5 hover:border-blue-500/30 transition-colors"
               >
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <span className="text-xs sm:text-sm text-slate-300 leading-relaxed">
